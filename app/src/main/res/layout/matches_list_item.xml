@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="result"
+            type="com.demo.shadi.model.Result" />
+    </data>
+
+    <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="@dimen/card_radius"
+        app:cardElevation="@dimen/card_elevation"
+        app:cardUseCompatPadding="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/iv_user"
+                android:layout_width="@dimen/image_width_height"
+                android:layout_height="@dimen/image_width_height"
+                android:layout_margin="@dimen/margin_10"
+                android:scaleType="centerCrop"
+                android:src="@mipmap/ic_launcher_round"
+                app:civ_border_color="@color/image_view_border_color"
+                app:civ_border_width="@dimen/image_view_border"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_user_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_10"
+                android:text="@{result.name.getFullName()}"
+                android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
+                android:textColor="@color/colorAccent"
+                android:textSize="@dimen/text_size_22"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/iv_user"
+                tools:text="Surjit S" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_user_detail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_8"
+                android:textSize="@dimen/text_size_16"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_user_name"
+                tools:text="27, 5'8', Punjabi, Jat" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_user_edu_address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_8"
+                android:text="@{result.location.getFullAddress()}"
+                android:textSize="@dimen/text_size_16"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_user_detail"
+                tools:text="27, 5'8', Punjabi, Jat" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_8"
+                android:padding="@dimen/padding_10"
+                android:textSize="@dimen/text_size_20"
+                android:visibility="gone"
+                android:textStyle="bold"
+                android:textColor="@android:color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_user_edu_address"
+                tools:text="27, 5'8', Punjabi, Jat" />
+
+            <LinearLayout
+                android:id="@+id/ll_buttons"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_10"
+                android:orientation="horizontal"
+                android:padding="@dimen/padding_10"
+                android:weightSum="2"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_user_edu_address">
+
+                <Button
+                    android:id="@+id/button_decline"
+                    style="@style/StatusButtonStyle"
+                    android:drawableTop="@drawable/ic_icon_cancel"
+                    android:text="@string/text_decline"
+                    android:textColor="@android:color/darker_gray" />
+
+                <Button
+                    android:id="@+id/button_accept"
+                    style="@style/StatusButtonStyle"
+                    android:drawableTop="@drawable/ic_icon_accept_unselected"
+                    android:text="@string/text_accept"
+                    android:textColor="@android:color/background_dark" />
+
+
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

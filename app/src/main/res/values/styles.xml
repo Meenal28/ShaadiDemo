@@ -8,4 +8,12 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="StatusButtonStyle">
+        <item name="android:layout_width">@dimen/zero</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:drawablePadding">@dimen/padding_10</item>
+        <item name="android:background">@android:color/transparent</item>
+    </style>
+
 </resources>
